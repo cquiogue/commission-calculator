@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Commission Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Commission Calculator</h1>
+      <br />
+      <h4>Wireless</h4>
+      <div class="commission-buttons">
+        <div class="commission-button">
+          <button class="commission-item">New Line ($60)</button>
+          <button class="decrement">-</button>
+          <span class="commission-count">0</span>
+          <button class="increment">+</button>
+        </div>
+        <div class="commission-button">
+          <button class="commission-item">Upgrade ($30)</button>
+          <button class="decrement">-</button>
+          <span class="commission-count">0</span>
+          <button class="increment">+</button>
+        </div>
+        <div class="commission-button">
+          <button class="commission-item">BYOD ($35)</button>
+          <button class="decrement">-</button>
+          <span class="commission-count">0</span>
+          <button class="increment">+</button>
+        </div>
+        <div class="commission-button">
+          <button class="commission-item">Extra ($8)</button>
+          <button class="decrement">-</button>
+          <span class="commission-count">0</span>
+          <button class="increment">+</button>
+        </div>
+        <div class="commission-button">
+          <button class="commission-item">Premium ($11)</button>
+          <button class="decrement">-</button>
+          <span class="commission-count">0</span>
+          <button class="increment">+</button>
+        </div>
+        <div class="commission-button">
+          <button class="commission-item">Single Insurance ($5)</button>
+          <button class="decrement">-</button>
+          <span class="commission-count">0</span>
+          <button class="increment">+</button>
+        </div>
+        <div class="commission-button">
+          <button class="commission-item">Family Insurance ($7)</button>
+          <button class="decrement">-</button>
+          <span class="commission-count">0</span>
+          <button class="increment">+</button>
+        </div>
+        <br />
+        <h4>Internet</h4>
+        <div class="commission-button">
+          <button class="commission-item">Internet 50 ($75)</button>
+          <button class="decrement">-</button>
+          <span class="commission-count">0</span>
+          <button class="increment">+</button>
+        </div>
+        <div class="commission-button">
+          <button class="commission-item">Internet 100 ($75)</button>
+          <button class="decrement">-</button>
+          <span class="commission-count">0</span>
+          <button class="increment">+</button>
+        </div>
+        <div class="commission-button">
+          <button class="commission-item">Fiber300 ($118)</button>
+          <button class="decrement">-</button>
+          <span class="commission-count">0</span>
+          <button class="increment">+</button>
+        </div>
+        <div class="commission-button">
+          <button class="commission-item">Fiber500 ($125)</button>
+          <button class="decrement">-</button>
+          <span class="commission-count">0</span>
+          <button class="increment">+</button>
+        </div>
+        <div class="commission-button">
+          <button class="commission-item">Fiber1000 ($145)</button>
+          <button class="decrement">-</button>
+          <span class="commission-count">0</span>
+          <button class="increment">+</button>
+        </div>
+      </div>
+      <br />
+      <button id="submit-button">Submit</button>
+      <br />
+      <br />
+
+      <div id="tally-commission"></div>
+
+      <div id="detailed-commission"></div>
+      <div id="total-commission"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
