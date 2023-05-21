@@ -4,12 +4,23 @@ body {
   padding: 20px;
 }
 
+h1 {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
 .container {
   max-width: 800px;
   margin: 0 auto;
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
+  text-align: center;
 }
 
 .commission-buttons {
@@ -28,8 +39,8 @@ body {
 
 .commission-item {
   flex: 1;
-  padding: 8px;
-  font-size: 16px;
+  padding: 18px;
+  font-size: 2.5rem;
   font-weight: bold;
   border: none;
   background-color: transparent;
@@ -37,18 +48,18 @@ body {
 
 .commission-count {
   margin: 0 10px;
-  font-size: 16px;
+  font-size: 3rem;
   font-weight: bold;
 }
 
 .increment,
 .decrement {
-  width: 24px;
-  height: 24px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   border: none;
   color: #fff;
-  font-size: 16px;
+  font-size: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,16 +77,21 @@ body {
 #submit-button {
   background-color: #2196f3;
   color: #fff;
-  margin-top: 20px;
-  padding: 10px 20px;
+  margin-top: 60px;
+  padding: 20px 40px;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 3rem;
   cursor: pointer;
 }
 
 #total-commission {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 3rem;
   margin-top: 24px;
+}
+
+#detailed-commission {
+  margin-top: 60px;
+  font-size: 2.5rem;
 }

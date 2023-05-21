@@ -1,1 +1,3 @@
-# commission-calculator
+# Commission Calculator
+
+Simple tallying program
