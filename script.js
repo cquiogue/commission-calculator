@@ -1,21 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const commissionButtons =
-    document.getElementsByClassName('commission-button');
-  const totalCommissionDisplay = document.getElementById('total-commission');
-  const detailedCommissionDisplay = document.getElementById(
-    'detailed-commission'
-  );
+  const commissionRows = document.getElementsByClassName('commission-row');
   const submitButton = document.getElementById('submit-button');
+  const clearButton = document.getElementById('clear-button');
+  const commissionSummary = document.querySelector('.commission-summary');
+  const totalCommissionDisplay = document.getElementById('total-commission');
   let totalCommission = 0;
-  let detailedCommission = '';
 
-  Array.from(commissionButtons).forEach(function (button) {
-    const incrementButton = button.getElementsByClassName('increment')[0];
-    const decrementButton = button.getElementsByClassName('decrement')[0];
-    const countDisplay = button.getElementsByClassName('commission-count')[0];
-    const commissionItem = button.getElementsByClassName('commission-item')[0];
-    const commissionValue = parseFloat(
-      commissionItem.innerText.match(/\$\d+(\.\d+)?/)[0].slice(1)
+  Array.from(commissionRows).forEach(function (row) {
+    const incrementButton = row.getElementsByClassName('increment')[0];
+    const decrementButton = row.getElementsByClassName('decrement')[0];
+    const countDisplay = row.getElementsByClassName('count-value')[0];
+    const commissionItem = row.getElementsByClassName('commission-item')[0];
+    const commissionPrice = parseFloat(
+      row.getElementsByClassName('commission-price')[0].innerText.slice(1)
     );
 
     incrementButton.addEventListener('click', function () {
@@ -23,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
       count++;
       countDisplay.innerText = count;
       calculateTotalCommission();
-      updateDetailedCommission();
+      updateCommissionSummary();
     });
 
     decrementButton.addEventListener('click', function () {
@@ -32,42 +29,74 @@ document.addEventListener('DOMContentLoaded', function () {
         count--;
         countDisplay.innerText = count;
         calculateTotalCommission();
-        updateDetailedCommission();
+        updateCommissionSummary();
       }
     });
   });
 
   submitButton.addEventListener('click', function () {
-    totalCommissionDisplay.innerText =
-      'Total Commission: $' + totalCommission.toFixed(2);
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth',
+    });
+    totalCommissionDisplay.innerText = 'Total: $' + totalCommission.toFixed(2);
+  });
+
+  clearButton.addEventListener('click', function () {
+    Array.from(commissionRows).forEach(function (row) {
+      const countDisplay = row.getElementsByClassName('count-value')[0];
+      countDisplay.innerText = '0';
+    });
+    totalCommission = 0;
+    totalCommissionDisplay.innerText = '';
+    commissionSummary.innerHTML = '';
   });
 
   function calculateTotalCommission() {
     totalCommission = 0;
-    Array.from(commissionButtons).forEach(function (button) {
-      const countDisplay = button.getElementsByClassName('commission-count')[0];
+    Array.from(commissionRows).forEach(function (row) {
+      const countDisplay = row.getElementsByClassName('count-value')[0];
       const count = parseInt(countDisplay.innerText);
-      const commissionItem =
-        button.getElementsByClassName('commission-item')[0];
-      const commissionValue = parseFloat(
-        commissionItem.innerText.match(/\$\d+(\.\d+)?/)[0].slice(1)
+      const commissionPrice = parseFloat(
+        row.getElementsByClassName('commission-price')[0].innerText.slice(1)
       );
-      totalCommission += commissionValue * count;
+      totalCommission += commissionPrice * count;
     });
   }
 
-  function updateDetailedCommission() {
-    detailedCommission = '';
-    Array.from(commissionButtons).forEach(function (button) {
-      const countDisplay = button.getElementsByClassName('commission-count')[0];
+  function updateCommissionSummary() {
+    commissionSummary.innerHTML = '';
+    Array.from(commissionRows).forEach(function (row) {
+      const countDisplay = row.getElementsByClassName('count-value')[0];
       const count = parseInt(countDisplay.innerText);
       const commissionItem =
-        button.getElementsByClassName('commission-item')[0].innerText;
+        row.getElementsByClassName('commission-item')[0].innerText;
+      const commissionPrice = parseFloat(
+        row.getElementsByClassName('commission-price')[0].innerText.slice(1)
+      );
+
       if (count > 0) {
-        const itemText = `${count} ${commissionItem}`;
-        detailedCommission += `${itemText}\n`;
+        const rowElement = document.createElement('div');
+        rowElement.classList.add('summary-row');
+
+        const countElement = document.createElement('div');
+        countElement.classList.add('summary-count');
+        countElement.innerText = count;
+
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('summary-item');
+        itemElement.innerText = commissionItem;
+
+        const totalElement = document.createElement('div');
+        totalElement.classList.add('summary-total');
+        totalElement.innerText = '$' + (commissionPrice * count).toFixed(2);
+
+        rowElement.appendChild(countElement);
+        rowElement.appendChild(itemElement);
+        rowElement.appendChild(totalElement);
+
+        commissionSummary.appendChild(rowElement);
       }
     });
-    detailedCommissionDisplay.innerText = detailedCommission;
   }
 });

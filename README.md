@@ -1,3 +1,3 @@
 # Commission Calculator
 
-Simple tallying program
+Simple tallying web app. Planning on converting to React Native.
