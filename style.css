@@ -13,16 +13,35 @@ h1 {
 
 h4 {
   font-family: 'Saira Condensed';
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
   background-color: #3b5998;
   padding: 10px;
   color: #fff;
 }
 
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #3b5998;
+  padding: 10px;
+  color: #fff;
+}
+
+.navbar h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: 'Saira Condensed';
+  margin: 0;
+}
+
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
@@ -46,14 +65,14 @@ h4 {
 
 .commission-item {
   text-align: left;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
 .commission-price {
   text-align: left;
   margin-left: 20%;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
@@ -64,15 +83,15 @@ h4 {
 }
 
 .count-value {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
   padding: 0 10px;
 }
 
 .increment,
 .decrement {
-  width: 48px;
-  height: 48px;
+  width: 58px;
+  height: 58px;
   border-radius: 20%;
   border: none;
   color: #fff;
@@ -136,12 +155,12 @@ h4 {
 }
 
 .summary-count {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
 .summary-item {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
@@ -155,5 +174,5 @@ h4 {
   margin-bottom: 2rem;
   font-size: 4rem;
   font-weight: bold;
-  background-color: #91c7e8;
+  background-color: #71c9ff;
 }
